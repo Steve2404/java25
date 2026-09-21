@@ -33,7 +33,7 @@ jobs:
         working-directory: chapter-04-elementare-sprachelemente
         run: |
           mkdir -p build/support
-          javac --release 25 -d build/support ExerciseChecker.java test-support/Simput.java
+          javac --release 25 -d build/support ExerciseChecker.java test-support/Simput.java test-support/IO.java
 
       - name: Compile every official solution
         working-directory: chapter-04-elementare-sprachelemente
