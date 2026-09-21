@@ -40,6 +40,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+
           for f in solutions/*.java; do
             name="$(basename "$f" .java)"
             out="build/$name"
@@ -63,16 +64,40 @@ jobs:
             java -cp "build/$name:build/support" "$name"
           }
 
+          run_with_input () {
+            local name="$1"
+            local input="$2"
+            printf "%b" "$input" | java -cp "build/$name:build/support" "$name"
+          }
+
           for f in solutions/Solution*.java; do
             name="$(basename "$f" .java)"
 
             case "$name" in
-              Solution16VisitorCheckIn|Solution17RoomArea|Solution18DurationConverter|Solution40JOptionPaneConfig|Solution41GuiParseOrCancel|Project01ITMaintenanceConsole|Project02WarehouseDispatchAssistant|Project03EnergyMonitor)
-                echo "[SKIP-RUNTIME] $name (interactive or GUI)"
+              Solution03SwingNotification|Solution40JOptionPaneConfig|Solution41GuiParseOrCancel)
+                echo "[SKIP-RUNTIME] $name (Swing UI / headless CI)"
                 ;;
+
+              Solution16VisitorCheckIn)
+                run_with_input "$name" "33\n1.82\nL\n"
+                ;;
+
+              Solution17RoomArea)
+                run_with_input "$name" "5.5\n2.0\n"
+                ;;
+
+              Solution18DurationConverter)
+                run_with_input "$name" "3665\n"
+                ;;
+
+              Solution33PositiveInputDoWhile)
+                run_with_input "$name" "-2\n0\n7\n"
+                ;;
+
               Solution39PrimitivePreviewSwitch)
                 java --enable-preview -cp "build/$name:build/support" "$name"
                 ;;
+
               *)
                 run_class "$name"
                 ;;
