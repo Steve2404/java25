@@ -4,25 +4,33 @@ Dieses Paket ist zum aktiven Üben gedacht. Die Aufgaben sind neu erstellt und r
 
 ## Arbeitsregel
 
-1. Öffne nur `exercises/`.
+1. Öffne zuerst nur `exercises/`.
 2. Löse die Aufgabe anhand von Ziel, Constraints, TODOs und Tests.
 3. Notiere deinen Denkweg.
 4. Teste erst danach mit der IDE.
 5. Öffne zuletzt die spiegelgleiche Lösung unter `solutions/`.
 
-## Struktur
+## Coding-Pack — 50 Übungen
 
-- `exercises/01-basics` — Programmeinstieg, Bezeichner, Imports
-- `exercises/02-output` — Ausgabe, String-Verkettung, `printf`
-- `exercises/03-types` — Variablen, Literale, Scope, `char`, Promotion
-- `exercises/04-input` — Konsoleneingabe mit `Simput`
-- `exercises/05-operators` — Operatoren und Ausdrücke
-- `exercises/06-numeric-limits` — Overflow, Floating Point, Grenzfälle
-- `exercises/07-control-flow` — `if`, `switch`, Schleifen, `break`, `continue`
-- `exercises/08-joptionpane` — GUI-Dialoge, Parsing, Fehlerwege
-- `solutions/` — vollständige Lösungen in derselben Struktur
+- `exercises/01-basics` — E01–E05
+- `exercises/02-output` — E06–E10
+- `exercises/03-types` — E11–E18
+- `exercises/04-input` — E19–E23
+- `exercises/05-operators` — E24–E31
+- `exercises/06-numeric-limits` — E32–E36
+- `exercises/07-control-flow` — E37–E45
+- `exercises/08-joptionpane` — E46–E50
 
-## Format jeder Übung
+## Spezialtraining
+
+- `debugging/` — 16 Debugging-Aufgaben
+- `mental-execution/` — 16 Aufgaben zur mentalen Ausführung ohne IDE
+- `qcm-ocp/` — 20 schwierige QCM/OCP-artige Fragen
+- `algorithms/` — 6 Algorithmusübungen
+- `mini-projects/` — 2 größere Kapitelprojekte
+- `solutions/` — vollständige Lösungen in spiegelgleicher Struktur
+
+## Format jeder Coding-Übung
 
 - einfache Reformulierung,
 - Eingaben/Ausgaben,
@@ -32,14 +40,25 @@ Dieses Paket ist zum aktiven Üben gedacht. Die Aufgaben sind neu erstellt und r
 - eingerückter Pseudocode,
 - Java-Skelett mit `TODO`,
 - 2–3 Schnelltests,
-- Reflexionsfragen.
+- Reflexionsfrage.
 
-## Zielumfang
+## Themenabdeckung
 
-- ca. **50 Coding-/Algorithmusübungen**,
-- separates Debugging-Pack,
-- separates Mental-Execution-Pack,
-- schwierige QCM/OCP-Aufgaben,
-- 1–2 größere Mini-Projekte.
+Der Pack deckt die behandelten Inhalte von Kapitel 4 ab:
 
-> Keine Aufgabe soll bewusst Konzepte aus späteren Kapiteln voraussetzen.
+- kompakter Java-25-Programmeinstieg,
+- Bezeichner und Imports,
+- Konsolenausgabe und `printf`,
+- Variablen, primitive Typen, Literale, Scope, `char`, `var`,
+- Eingabe mit `Simput`,
+- Operatoren, Promotions, Casts, Inkrement, boolesche Logik,
+- Overflow, IEEE-754, `Infinity`, `NaN`, Floating-Point-Präzision,
+- `if`, moderner und klassischer `switch`,
+- `for`, enhanced-for, `while`, `do-while`,
+- `break`, `continue`, Labels,
+- Primzahltest und euklidischer Algorithmus,
+- `JOptionPane`,
+- `String -> Long.parseLong() -> long`,
+- `null`, `NumberFormatException` und einfache Fehlerdiagnose.
+
+> Keine Aufgabe soll bewusst Konzepte aus späteren Kapiteln voraussetzen. Exception-Handling mit `try/catch` wird deshalb noch nicht verlangt.
