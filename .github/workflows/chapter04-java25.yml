@@ -1,0 +1,80 @@
+name: Chapter 4 Java 25 verification
+
+on:
+  push:
+    branches:
+      - main
+      - chapter4-exercises-rewrite
+    paths:
+      - "chapter-04-elementare-sprachelemente/**"
+      - ".github/workflows/chapter04-java25.yml"
+  pull_request:
+    paths:
+      - "chapter-04-elementare-sprachelemente/**"
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "25"
+
+      - name: Show Java version
+        run: |
+          java --version
+          javac --version
+
+      - name: Compile support code
+        working-directory: chapter-04-elementare-sprachelemente
+        run: |
+          mkdir -p build/support
+          javac --release 25 -d build/support ExerciseChecker.java test-support/Simput.java
+
+      - name: Compile every official solution
+        working-directory: chapter-04-elementare-sprachelemente
+        shell: bash
+        run: |
+          set -euo pipefail
+          for f in solutions/*.java; do
+            name="$(basename "$f" .java)"
+            out="build/$name"
+            mkdir -p "$out"
+
+            if [[ "$name" == "Solution39PrimitivePreviewSwitch" ]]; then
+              javac --enable-preview --release 25 -cp build/support -d "$out" "$f"
+            else
+              javac --release 25 -cp build/support -d "$out" "$f"
+            fi
+          done
+
+      - name: Run deterministic official solutions
+        working-directory: chapter-04-elementare-sprachelemente
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          run_class () {
+            local name="$1"
+            java -cp "build/$name:build/support" "$name"
+          }
+
+          for f in solutions/Solution*.java; do
+            name="$(basename "$f" .java)"
+
+            case "$name" in
+              Solution16VisitorCheckIn|Solution17RoomArea|Solution18DurationConverter|Solution40JOptionPaneConfig|Solution41GuiParseOrCancel|Project01ITMaintenanceConsole|Project02WarehouseDispatchAssistant|Project03EnergyMonitor)
+                echo "[SKIP-RUNTIME] $name (interactive or GUI)"
+                ;;
+              Solution39PrimitivePreviewSwitch)
+                java --enable-preview -cp "build/$name:build/support" "$name"
+                ;;
+              *)
+                run_class "$name"
+                ;;
+            esac
+          done

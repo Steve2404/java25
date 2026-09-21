@@ -1,64 +1,62 @@
-# Kapitel 4 – Elementare Sprachelemente: Exercise Pack
+# Kapitel 4 – Elementare Sprachelemente: Java-25 Exercise Pack
 
-Dieses Paket ist zum aktiven Üben gedacht. Die Aufgaben sind neu erstellt und reproduzieren nicht den Buchtext.
+Dieses Kapitel wurde nach dem gleichen pädagogischen Prinzip wie der JavaScript-Exercise-Prompt neu aufgebaut:
+
+**COMPRENDRE → RAISONNER À LA MAIN → PRÉDIRE → ÉCRIRE LE CODE → EXÉCUTER → OBSERVER → EXPLIQUER**
+
+Es gibt hier **keine QCM/Quiz-Serie**. Die früheren QCM wurden durch zusätzliche Coding- und Algorithmusprobleme ersetzt. Jede Aufgabe soll ein konkretes Problem lösen, wie ein kleines Stück aus einem echten Projekt.
+
+## Struktur
+
+```text
+chapter-04-elementare-sprachelemente/
+├── ExerciseChecker.java
+├── COVERAGE.md
+├── test-support/
+│   └── Simput.java
+├── exercises/
+│   ├── Exercise01....java
+│   ├── Exercise02....java
+│   └── ...
+└── solutions/
+    ├── Solution01....java
+    ├── Solution02....java
+    └── ...
+```
 
 ## Arbeitsregel
 
-1. Öffne zuerst nur `exercises/`.
-2. Löse die Aufgabe anhand von Ziel, Constraints, TODOs und Tests.
-3. Notiere deinen Denkweg.
-4. Teste erst danach mit der IDE.
-5. Öffne zuletzt die spiegelgleiche Lösung unter `solutions/`.
+1. Öffne **nur** die Datei unter `exercises/`.
+2. Lies zuerst das Problem und die Erklärung wie für ein Kind.
+3. Rechne / simuliere den Fall **von Hand**.
+4. Lies den Plan.
+5. Schreibe erst dann Java.
+6. Führe das Programm aus.
+7. Erkläre danach, warum dein Ergebnis korrekt ist.
+8. Öffne erst zuletzt die passende Datei unter `solutions/`.
 
-## Coding-Pack — 50 Übungen
+## Format einer Aufgabe
 
-- `exercises/01-basics` — E01–E05
-- `exercises/02-output` — E06–E10
-- `exercises/03-types` — E11–E18
-- `exercises/04-input` — E19–E23
-- `exercises/05-operators` — E24–E31
-- `exercises/06-numeric-limits` — E32–E36
-- `exercises/07-control-flow` — E37–E45
-- `exercises/08-joptionpane` — E46–E50
+Jede Aufgabe besitzt:
+- eine reale Situation,
+- ein klares Ziel,
+- genau erklärte TODOs,
+- **Le problème, expliqué comme à un tout petit enfant**,
+- **Essayons à la main**,
+- **Le plan** ohne Java-Code,
+- die Frage nach einer sinnvollen „boîte magique“,
+- überprüfbare Beispiele,
+- technische Java-Hinweise,
+- ein Java-Skelett ohne halbe Lösung.
 
-## Spezialtraining
+## Wichtige Progressionsregel
 
-- `debugging/` — 16 Debugging-Aufgaben
-- `mental-execution/` — 16 Aufgaben zur mentalen Ausführung ohne IDE
-- `qcm-ocp/` — 20 schwierige QCM/OCP-artige Fragen
-- `algorithms/` — 6 Algorithmusübungen
-- `mini-projects/` — 2 größere Kapitelprojekte
-- `solutions/` — vollständige Lösungen in spiegelgleicher Struktur
+Keine Aufgabe darf stillschweigend Wissen aus späteren Kapiteln voraussetzen. Die Schwierigkeit entsteht durch die Kombination **bereits gelernter** Regeln, nicht durch neue APIs.
 
-## Format jeder Coding-Übung
+## Java-Version
 
-- einfache Reformulierung,
-- Eingaben/Ausgaben,
-- Constraints und Randfälle,
-- 5–7 Teilaufgaben,
-- Denkweg,
-- eingerückter Pseudocode,
-- Java-Skelett mit `TODO`,
-- 2–3 Schnelltests,
-- Reflexionsfrage.
+Ziel ist **Java 25**. Die Preview-Aufgabe zu primitiven Pattern-Switches wird separat mit `--enable-preview` behandelt.
 
-## Themenabdeckung
+## Verifikation
 
-Der Pack deckt die behandelten Inhalte von Kapitel 4 ab:
-
-- kompakter Java-25-Programmeinstieg,
-- Bezeichner und Imports,
-- Konsolenausgabe und `printf`,
-- Variablen, primitive Typen, Literale, Scope, `char`, `var`,
-- Eingabe mit `Simput`,
-- Operatoren, Promotions, Casts, Inkrement, boolesche Logik,
-- Overflow, IEEE-754, `Infinity`, `NaN`, Floating-Point-Präzision,
-- `if`, moderner und klassischer `switch`,
-- `for`, enhanced-for, `while`, `do-while`,
-- `break`, `continue`, Labels,
-- Primzahltest und euklidischer Algorithmus,
-- `JOptionPane`,
-- `String -> Long.parseLong() -> long`,
-- `null`, `NumberFormatException` und einfache Fehlerdiagnose.
-
-> Keine Aufgabe soll bewusst Konzepte aus späteren Kapiteln voraussetzen. Exception-Handling mit `try/catch` wird deshalb noch nicht verlangt.
+Die offiziellen Lösungen werden mit GitHub Actions unter Java 25 kompiliert. Nicht-GUI-Lösungen werden zusätzlich ausgeführt, soweit sie deterministisch automatisierbar sind. Swing-Dialoge werden kompiliert, aber nicht in einer Headless-CI als echte Benutzerinteraktion ausgeführt.

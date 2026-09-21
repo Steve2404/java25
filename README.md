@@ -6,10 +6,11 @@ Dieses Repository begleitet meinen Java-25-Kurs.
 
 - [Kapitel 4 – Elementare Sprachelemente](chapter-04-elementare-sprachelemente/README.md)
 
-Die Übungen sind bewusst von den Lösungen getrennt:
+Der Kapitel-4-Pack ist problemorientiert aufgebaut:
+- ein Problem pro Java-Datei,
+- Aufgaben und Lösungen strikt getrennt,
+- reale Szenarien statt QCM,
+- Algorithmusprobleme und Mini-Projekte,
+- Java-25-Verifikation über GitHub Actions.
 
-- `exercises/` → Aufgaben, Constraints, TODOs und Beispiele — **ohne Lösung**
-- `solutions/` → vollständige Lösungen mit Erklärung und erwarteter Ausgabe
-- `debugging/`, `mental-execution/`, `algorithms/`, `mini-projects/` → spezielle Trainingsformen
-
-> Ziel: erst selbst lösen, dann vergleichen.
+> Arbeitsregel: erst selbst verstehen und lösen, dann die Lösung öffnen.
